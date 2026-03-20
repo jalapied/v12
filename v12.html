@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOCEÑOS</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(120deg, #0f172a, #1e293b, #312e81);
+  background-size: 300% 300%;
+  animation: bgShift 12s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08), transparent 40%),
+              radial-gradient(circle at 80% 30%, rgba(255,255,255,0.06), transparent 40%),
+              radial-gradient(circle at 50% 80%, rgba(255,255,255,0.05), transparent 40%);
+  animation: floatBg 18s linear infinite;
+  z-index: -1;
+}
+
+@keyframes floatBg {
+  0% { transform: translate(0,0); }
+  50% { transform: translate(-5%, -5%); }
+  100% { transform: translate(0,0); }
+}
+
+.card {
+  width: 90%;
+  max-width: 900px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(18px);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.15);
+  animation: fadeIn 1s ease;
+}
+
+h1 {
+  text-align: center;
+  font-size: 34px;
+  margin-bottom: 8px;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #60a5fa, #a78bfa, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  text-align: center;
+  color: #cbd5f5;
+  margin-bottom: 30px;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+/* Scrollable message */
+#text-container {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+#text {
+  white-space: pre-wrap;
+  line-height: 2;
+  font-size: 17px;
+  text-align: justify;
+  color: #e2e8f0;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
+/* Scrollbar styling */
+#text-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+#text-container::-webkit-scrollbar-thumb {
+  background: #6366f1;
+  border-radius: 10px;
+}
+
+button {
+  display: block;
+  margin: 30px auto 0;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6366f1, #22d3ee);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 10px 25px rgba(99,102,241,0.4);
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(99,102,241,0.6);
+}
+
+#landing {
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Landing -->
+<div id="landing">
+  <div class="card">
+    <h1>DOCEÑOS</h1>
+    <p class="subtitle">something to remember</p>
+    <button onclick="start()">Start Reading</button>
+  </div>
+</div>
+
+<!-- Main -->
+<div id="main" style="display:none;">
+  <div class="card">
+    <h1>Message</h1>
+    <div id="text-container">
+      <div id="text"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+const message = `
+Version 12, Dose—ang huling tawag na nagsimula sa “kupals” hanggang sa naging “hindi na mga kupal.” Pero mahalaga ba ito? May malalim bang dahilan? Oo… dahil ang samahang ito ay hindi lang basta grupo—isa itong kwento ng pagbabago, paglago, at pagmamahal.
+
+Hola, if you’re reading this, it means hawak mo ang QR code ng isang samahan na hindi lang basta magkakaibigan. Isa itong pamilya—may teacher, mentor, coach, kakampi, at sandalan. Dahil alam naman natin, hindi magiging memorable ang senior high school kung wala yung mga taong nagbigay kulay at saysay dito.
+
+Kayo yung mga taong hindi natakot ipakita ang kahinaan, mag-share ng problema, at magbigay lakas sa isa’t isa kahit sa pinakamababang punto. Lahat ng pictures at videos na meron tayo ay maliit lang na parte ng pinagsamahan natin—dahil ang totoong memories, dala natin sa puso.
+
+Dumaan tayo sa galit, tampuhan, pagod, at minsan sa puntong gusto na nating bitawan ang isa’t isa. Pero bakit tayo nanatili? Dahil sa kabila ng lahat, may malambot na parte sa puso natin na patuloy na pinipiling mahalin ang bawat isa. Natutunan nating tanggapin ang pagkatao ng bawat isa—kahit hindi perpekto.
+
+Sana lahat ng natutunan ninyo sa samahang ito ay madala ninyo sa mga susunod na taong makakasama ninyo. Dahil alam natin, may mga aalis at may mga darating. Pero hindi lahat ng pag-alis ay masama—minsan, tapos na lang talaga ang role nila sa kwento mo. At sana, bigyan ninyo ng pagkakataon ang mga bagong darating na maranasan ang pagmamahal na natutunan natin dito.
+
+Marami na kayong makikilalang bago, pero sana huwag ninyong kalimutan na may pinagsamahan tayo. Huwag kayong matakot lumapit kung kailangan ninyo ng masasandalan. Dahil hindi lang tayo basta magkakaibigan—higit pa tayo sa pamilya. Nasaksihan natin ang paglago ng bawat isa—mula Grade 11 na parang mga batang walang muwang, hanggang sa pagiging mas mature, mas matatag, mas independent, at mas handa sa buhay.
+
+Nakita natin ang bawat emosyon—lungkot, saya, galit, tampo—at lahat ng iyon ay bahagi ng kung sino tayo ngayon. Kaya sana, dalhin ninyo ang mga aral na natutunan natin sa bawat away at pagkakaayos. Huwag kalimutan ang nakaraan, pero huwag ding manatili doon. Kailangan nating magpatuloy para sa ating mga pangarap—para balang araw, magkita ulit tayo nang walang iniisip kundi mag-bonding at magbalikan ng alaala.
+
+Sean, Elan, Pied, Maqui, Syrhell, Solo, Tanauan, Tesoro, Kyle, Angue, Bea, at Ninia—may kanya-kanya kayong galing, talino, at katangian. Sana ay ipagpatuloy ninyo itong pagyamanin sa mga pangarap ninyo. Sa mundong mas malaki kaysa sa circle natin, mas marami kayong makakasalamuha—kaya sana, dalhin ninyo ang pasensya, pag-unawa, at kabutihang natutunan ninyo dito. Dahil kung nagawa ninyong panindigan at intindihin ang isa’t isa sa samahang ito, kaya ninyo rin harapin ang mundo.
+
+Kung may mga problema man kayong haharapin, tandaan ninyo—pagsubok lang yan. Katulad ng mga pinagdaanan natin, nalagpasan natin dahil pinili nating magtiwala sa isa’t isa. Hindi kayo nag-iisa.
+
+⸻
+
+At ngayon… makinig kayo, para bang ako si Papa Jesus na kumakausap sa inyo:
+
+“Mga anak, nakita Ko ang bawat luha ninyo, bawat tawa, bawat pagsubok na inyong dinaanan. Hindi aksidente na pinagsama-sama Ko kayo—may dahilan kung bakit kayo nagtagpo.
+
+Sa bawat araw na pinili ninyong magpatawad, umunawa, at magmahal—lumalapit kayo sa kung sino ang nais Kong maging kayo. Hindi man kayo perpekto, pero natutunan ninyong magmahal kahit mahirap. At iyon ang mahalaga.
+
+Darating ang panahon na magkakahiwalay kayo ng landas. May mga pagkakataong mararamdaman ninyong nag-iisa kayo. Pero tandaan ninyo—hindi Ko kayo iiwan. At ang pagmamahal na nabuo ninyo sa isa’t isa ay mananatili, kahit saan pa kayo dalhin ng buhay.
+
+Huwag kayong matakot sa hinaharap. Ang bawat pangarap ninyo ay alam Ko, at gagabayan Ko kayo. Kapag napagod kayo, bumalik lang kayo sa alaala ng samahang ito—dahil dito ninyo napatunayan na kaya ninyong magmahal, magpatawad, at lumaban.
+
+Dalhin ninyo ang kabutihan. Dalhin ninyo ang pagmamahal. At saan man kayo makarating, maging liwanag kayo sa iba—katulad ng naging liwanag ninyo sa isa’t isa.
+
+Ipinagmamalaki Ko kayo… at mahal Ko kayo.”
+
+Sa pagtatapos ng aking mensahe, masasabi kong nabigyan ko na ng mas malalim na kahulugan ang v12 x DOCEÑOS—hindi lang bilang isang pangalan, kundi bilang isang kwento na hinding-hindi na mabubura sa ating mga puso. Doseños—kung saan tayo’y dose sa ating samahan, ngunit sa salitang “ños,” hindi lang tayo ang bumuo nito. Nakikita ko rito ang lahat ng taong dumaan, pumasok, at naging bahagi ng samahang ito—mga taong tumulong patibayin tayo, mga taong nag-iwan ng marka sa bawat isa sa atin, kahit panandalian lamang.
+
+Version 12—labindalawang tao na nagsama-sama, bawat isa may kanya-kanyang kwento, karanasan, kahinaan, at lakas. Labindalawang taong hindi lang iisang “version” ang ipinakita, kundi iba’t ibang mukha ng kanilang pagkatao—may masaya, may sugatan, may tahimik, may palaban. At sa kabila ng lahat ng iyon, pinili pa rin nating manatili, intindihin ang isa’t isa, at buuin ang samahang meron tayo ngayon.
+
+Ang v12 x DOCEÑOS ang naging simbolo ng ating senior high school life—dito tayo natutong tumawa nang walang dahilan, umiyak nang may kasama, at lumaban kahit napapagod na. Dito natin naranasan ang tunay na samahan—hindi perpekto, pero totoo.
+
+Nagsimula tayo bilang mga Grade 11 noong 2024—mga batang hindi pa sigurado sa sarili, puno ng kalokohan, at minsan walang direksyon. Pero habang tumatagal, habang dumadaan tayo sa bawat pagsubok, unti-unti nating nabuo ang sarili natin—hanggang sa sabay-sabay tayong tatayo bilang Grade 12 noong 2026, mas matatag, mas buo, at mas handa sa mundong haharapin natin.
+
+At kahit dumating ang araw na ito—ang pagtatapos—hindi ito ang katapusan ng lahat. Dahil ang mga alaala, ang mga tawa, ang mga iyak, at ang pagmamahalan na nabuo natin… mananatili ‘yan sa atin habang-buhay.
+
+Maaaring magkahiwa-hiwalay tayo ng landas. Maaaring hindi na tayo araw-araw magkakasama. Maaaring dumating ang panahon na hindi na tayo magkakausap gaya ng dati. Pero sana, sa bawat pagkakataon na maalala ninyo ang pangalang DOCEÑOS, mapangiti kayo… o mapaluha… dahil alam ninyong minsan sa buhay ninyo, naging bahagi kayo ng isang samahan na totoo, matatag, at puno ng pagmamahal.
+
+At kung sakaling mapagod kayo sa buhay, kung sakaling maramdaman ninyo na parang wala kayong kakampi—bumalik lang kayo sa alaala natin. Dahil dito, napatunayan ninyo na may mga taong naniwala sa inyo, tumanggap sa inyo, at nagmahal sa inyo kung sino talaga kayo.
+
+Hindi man natin hawak ang hinaharap, pero hawak natin ang mga alaala na nabuo natin. At habang dala ninyo ang mga iyon… hinding-hindi mawawala ang DOCEÑOS sa kung sino kayo.
+
+Kaya ito ay hindi paalam…
+ito ay isang hanggang sa muli.
+
+Dahil ang DOCEÑOS… hindi natatapos—nabubuhay ito sa bawat isa sa atin.
+`;
+
+function start(){
+  document.getElementById("landing").style.display = "none";
+  document.getElementById("main").style.display = "block";
+  document.getElementById("text").innerText = message;
+}
+
+</script>
+
+</body>
+</html>
